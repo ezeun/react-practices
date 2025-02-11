@@ -1,0 +1,37 @@
+:global(#App) {
+    .Tab_Box {
+        width: fit-content;
+        margin: 100px auto;
+
+        div {
+            width: calc(100% - 4px);
+            height: 200px;
+            margin-top: -1px;
+            border: 1px solid #999;
+            text-align: center;
+            line-height: 200px;
+        }
+    }
+    
+    .Tab_Box_Ul {
+        height: 24px;
+    }
+    
+    .Tab_Box_Li {
+        float: right;
+        border: 1px solid #999;
+        border-radius: 10px 10px 0 0;
+        width: 100px;
+        height: 22px;
+        margin-right: 2px;
+        
+        text-align: center;
+        line-height: 22px;
+        
+        background-color: #ccc;
+        cursor: pointer;
+    }
+    .Active {
+        background-color: #fc6;
+    } 
+}

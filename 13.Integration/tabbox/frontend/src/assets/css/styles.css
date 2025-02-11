@@ -1,31 +1,4 @@
-@charset "utf-8";
-
-* {
-    margin: 0;
-    padding: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizelegibility;
-    letter-spacing: -0.25px;
-}
-
-ul, ol, dl {
-    list-style-type: none;
-}
-
-body {
-    font-family: 'Space Mono', monospace; 
-    display: flex;
-    flex-direction: column;
-    padding: 32px;
-    margin: 60px auto;
-}
-
-#root, #App {
-    width: 100%
-}
-
-/* --- */
+/* 
 
 .tab-box {
 	width: fit-content;
@@ -62,4 +35,4 @@ body {
 	border: 1px solid #999;
 	text-align: center;
 	line-height: 200px;
-}
+} */
