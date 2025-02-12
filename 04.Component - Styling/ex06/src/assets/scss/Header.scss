@@ -1,0 +1,16 @@
+
+@use "variables" as *;
+
+
+
+.Header {
+    width: 280px;
+    text-align: $text-align-center;
+    margin: $header-margin;
+    padding: $header-padding;
+    border: $header-border;
+    color: $header-color;
+    background-color: $bg-header
+    }
+
+
