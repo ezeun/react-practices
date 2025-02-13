@@ -1,10 +1,14 @@
 import React from 'react';
+import CardList from './CardList';
+import './assets/scss/KanbanBoard.scss';
 
 function KanbanBoard() {
     return (
-        <>
-            <h4>Kanbanboard  과제</h4>
-        </>
+        <div className={'Kanban_Board'}>
+            <CardList title={'ToDo'}/>
+            <CardList title={'Doing'}/>
+            <CardList title={'Done'}/>
+        </div>
     );
 }
 
