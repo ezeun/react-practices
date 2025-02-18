@@ -3,6 +3,7 @@ package ajax.controller.api;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
+import java.util.function.Predicate;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
@@ -40,11 +41,34 @@ public class ItemController {
 					.body(JsonResult.success(item));
 	}
 	
+	@GetMapping("/{id}")
+	public ResponseEntity<JsonResult<Item>> read(@PathVariable Long id){
+		log.info("Request[GET /api]");	
+		
+		return ResponseEntity
+				.status(HttpStatus.OK)
+				.body(JsonResult.success(items
+						.stream()
+						.filter(t -> t.getId() == id)
+						.findAny()
+						.orElse(null)));
+	}
+	
 	@GetMapping
 	public ResponseEntity<JsonResult<List<Item>>> read(){
 		log.info("Request[GET /api]");
+		
 		return ResponseEntity
 				.status(HttpStatus.OK)
 				.body(JsonResult.success(items));
+	}
+	
+	@DeleteMapping("/{id}")
+	public ResponseEntity<JsonResult<Long>> delete(@PathVariable Long id){
+		log.info("Request[DELETE /api/{}]", id);
+		
+		return ResponseEntity
+				.status(HttpStatus.OK)
+				.body(JsonResult.success(items.removeIf(t -> t.getId() == id) ? id : -1));
 	}
 }
