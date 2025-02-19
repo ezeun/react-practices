@@ -29,6 +29,42 @@ function Card(props) {
         }
     }
 
+    const addTask = async (taskName) => {
+        try {
+            const response = await fetch(`/kanbanboard/task`, {
+                method: "POST",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name: taskName, cardNo: props.no, done: "N"})
+            });
+
+            const jsonResult = await response.json();
+            if (!response.ok || jsonResult.result === 'fail') {
+                throw new Error(`${response.status} ${response.statusText}`);
+            }
+
+            fetchTasks(props.no); 
+        } catch (err) {
+            console.error(err);
+        }
+    };
+
+    const deleteTask = async (taskNo) => {
+        try {
+            const response = await fetch(`/kanbanboard/task/${taskNo}`, {
+                method: "DELETE",
+                headers: { 'Content-Type': 'application/json' }
+            });
+
+            if (!response.ok) {
+                throw new Error(`Failed to delete task ${taskNo}`);
+            }
+
+            fetchTasks(props.no); 
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
     useEffect(() => {
         if(isOpen) {
             fetchTasks(props.no);
@@ -48,7 +84,7 @@ function Card(props) {
             {props.description}
             {isOpen && (
                 <div>
-                    <TaskList tasks={tasks}/>
+                    <TaskList tasks={tasks} addTask={addTask} deleteTask={deleteTask}/>
                 </div>
             )}
 
