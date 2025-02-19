@@ -45,19 +45,6 @@ function CardList(props) {
                                     description = {card.description}
                                 />
                 ))}
-
-
-                {/* {
-                    data
-                        .filter(d => d.status === props.title)
-                        .map(d => <Card 
-                                    key = {d.no}
-                                    no = {d.no}
-                                    title = {d.title}
-                                    description = {d.description}
-                                    tasks = {d.tasks}
-                            />)
-                } */}
             </div>
         </div>
     );

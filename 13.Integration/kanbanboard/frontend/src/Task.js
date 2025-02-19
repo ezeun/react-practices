@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import {_Task, Task_Remove} from './assets/scss/Task.scss';
 
-function Task({no, name, done, deleteTask}) {
+function Task({no, name, done, deleteTask, updateTask}) {
     const [isChecked, setIsChecked] = useState(done == 'Y' ? true : false); 
-    const toggleCheck = () => {
+    const toggleCheck = async () => {
         setIsChecked(!isChecked);
+        await updateTask(no, isChecked?'Y':'N');
     };
     
     return (

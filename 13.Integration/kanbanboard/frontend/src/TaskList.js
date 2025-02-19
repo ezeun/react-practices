@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import Task from './Task';
 import {Task_List, Input_Add_Task} from './assets/scss/TaskList.scss';
 
-function TaskList({tasks, addTask, deleteTask}) {
+function TaskList({tasks, addTask, deleteTask, updateTask}) {
     const [taskName, setTaskName] = useState("");
 
     const handleInputChange = (e) => {
@@ -26,6 +26,7 @@ function TaskList({tasks, addTask, deleteTask}) {
                                         name = {task.name}
                                         done = {task.done}
                                         deleteTask = {deleteTask}
+                                        updateTask = {updateTask}
                             />)
                 }
             </ul>

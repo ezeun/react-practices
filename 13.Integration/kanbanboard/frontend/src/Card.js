@@ -65,6 +65,24 @@ function Card(props) {
         }
     }
 
+    const updateTask = async (taskNo, done) => {
+        done = done=='Y'?'N':'Y';
+        try{
+            const response = await fetch(`/kanbanboard/task/${taskNo}?done=${done}`, {
+                method: "PUT",
+                headers: { 'Content-Type': 'application/json' }
+            });
+
+            if (!response.ok) {
+                throw new Error(`Failed to update task ${taskNo}`);
+            }
+
+            fetchTasks(props.no); 
+        } catch(err){
+            console.error(err);
+        }
+    }
+
     useEffect(() => {
         if(isOpen) {
             fetchTasks(props.no);
@@ -84,7 +102,7 @@ function Card(props) {
             {props.description}
             {isOpen && (
                 <div>
-                    <TaskList tasks={tasks} addTask={addTask} deleteTask={deleteTask}/>
+                    <TaskList tasks={tasks} addTask={addTask} deleteTask={deleteTask} updateTask={updateTask}/>
                 </div>
             )}
 
