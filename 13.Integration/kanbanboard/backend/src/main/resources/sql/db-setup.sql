@@ -22,10 +22,10 @@ CREATE TABLE IF NOT EXISTS `task` (
 ENGINE = InnoDB;
 
 -- insert card
-insert into card values(null, 'DB Scheme Design', '프로젝트 Database 논리 모델링 작업', 'ToDo');
-insert into card values(null, 'Stroy Board 작성', '기능 기반의 화면 목업 작업', 'Done');
-insert into card values(null, 'React Study', 'React.JS 공부 하기', 'Doing');
-insert into card values(null, 'View Publishing', '화면 HTML CSS publishing 하기', 'ToDo');
+insert into card values(null, '1DB Scheme Design', '프로젝트 Database 논리 모델링 작업', 'ToDo');
+insert into card values(null, '3Stroy Board 작성', '기능 기반의 화면 목업 작업', 'Done');
+insert into card values(null, '2React Study', 'React.JS 공부 하기', 'Doing');
+insert into card values(null, '1View Publishing', '화면 HTML CSS publishing 하기', 'ToDo');
 
 -- insert task
 insert into task values(null, '사용자 스토리 리스트업', 'Y', 2);
